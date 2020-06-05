@@ -40,7 +40,7 @@ async def on_ready():
                 await channel.send(date_str)
 
                 for i in range(5,10):
-                    message = await channel.send(f'Able to stary at {i}:00 PM PST')                    
+                    message = await channel.send(f'Able to start at {i}:00 PM PST')                    
                     await message.add_reaction('<:3783_salute1:652257869927940107>')
 
                 
