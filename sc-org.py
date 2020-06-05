@@ -32,18 +32,16 @@ async def on_ready():
 
                 today = date.today()
 
-                targetId = 717743773781852232
-                
                 async for message in channel.history(limit=100):
-                    if message.id == targetId:
-                        date_str = "Today\'s Date: " + str(today.strftime("%B %d, %Y"))
-                        await message.edit(content=str(date_str))
+                    if message.author == client.user:
+                        await message.delete()
+                
+                date_str = "Today\'s Date: " + str(today.strftime("%B %d, %Y"))
+                await channel.send(date_str)
 
-                async for message in channel.history(limit=20):
-                #     print(f'{message.id}: {message.content}')
-                    if message.author == client.user and message.id != targetId:
-                        await message.clear_reactions()
-                        await message.add_reaction('<:3783_salute1:652257869927940107>')
+                for i in range(5,10):
+                    message = await channel.send(f'Able to stary at {i}:00 PM PST')                    
+                    await message.add_reaction('<:3783_salute1:652257869927940107>')
 
                 
                 #         # await message.delete()
